@@ -20,7 +20,7 @@ public class turn extends ticTacToeMain {
     public void nextTurn() {
 
         if (this.whosTurn() == 'x') {
-            current = 'y';
+            current = 'o';
         } else {
             current = 'x';
         }

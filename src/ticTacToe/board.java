@@ -33,9 +33,9 @@ public class board extends ticTacToeMain{
        }
 
        /**
-        * a(0,0) b(0,1) c(0,2)
-        * d(1,0) e(1,1) f(1,2)
-        * g(2,0) h(2,1) i(2,2)
+        * a(0,0) b(0) c(0,2)
+        * d,0) e) f,2)
+        * g(2,0) h(2) i(2,2)
         *
         */
 
@@ -52,7 +52,14 @@ public class board extends ticTacToeMain{
         Column = column;
     }
 
+    public static int getRow(){
+        return Row;
+    }
 
+
+    public static int getColumn(){
+        return Column;
+    }
 
 
 
@@ -71,12 +78,32 @@ public class board extends ticTacToeMain{
 
 
 
+    public static boolean canGoThere = true;
+    public static boolean canGoThere(int row, int column){
+
+        if (row >= 1 && row <= 3 && column >= 1 && column <= 3) {
+            if (boardd[row-1][column-1]=='-' ) {
+                canGoThere = true;
+                return canGoThere;
+            } else {
+                canGoThere = false;
+                return canGoThere;
+            }
+        } else {
+            canGoThere = false;
+            return canGoThere;
+        }
+
+
+    }
+
+
 
     public static void place(){
         if (turn == 'x') {
             boardd[Row-1][Column-1] = 'x';
         } else {
-            boardd[Row-1][Column-1] = 'y';
+            boardd[Row-1][Column-1] = 'o';
         }
 
 

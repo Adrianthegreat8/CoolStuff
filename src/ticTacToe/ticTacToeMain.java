@@ -14,28 +14,50 @@ public class ticTacToeMain {
         int row;
         int column;
 
+        boolean canGoThere = true;
 
-int peepee = 1;
 
 
         do {
 
-            Board.printBoard();
-            System.out.println();
 
-            System.out.println("Which row?");
-            row = input.nextInt();
-            board.setRow(row);
 
-            System.out.println("Which column?");
-            column = input.nextInt();
-            board.setRow(column);
+                Board.printBoard();
+                System.out.println();
 
-            Board.getTurn(Turn.whosTurn());
+            System.out.println("It is " + turn.whosTurn() + "'s turn");
 
-            Board.place();
-        peepee ++;
-        if (peepee == 5) gameWon = true;
+                System.out.println("Which column?");
+                column = input.nextInt();
+                board.setColumn(column);
+
+                System.out.println("Which row?");
+                row = input.nextInt();
+                board.setRow(row);
+
+                canGoThere=Board.canGoThere(row, column);
+
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+
+                if (canGoThere==true) {
+                    Board.getTurn(Turn.whosTurn());
+
+                    Board.place();
+
+                    Turn.nextTurn();
+                } else {
+                    System.out.println("You cannot go there try again");
+                    System.out.println("");
+                }
 
 
             if (Board.gameWon(gameWon)==true) gameWon = true;
